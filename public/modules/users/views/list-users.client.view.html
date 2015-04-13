@@ -1,0 +1,18 @@
+<section data-ng-controller="ListUsersController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Users</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="user in users" data-ng-href="#!/users/profiles/{{user._id}}" class="list-group-item">
+            <small class="list-group-item-text">
+            <span data-ng-bind="user.username"></span>
+            </small>
+            <h4 class="list-group-item-heading" data-ng-bind="user.email"></h4>
+            <h4 class="list-group-item-heading">{{user.firstName + ' ' + user.lastName}}</h4>
+            <h4 class="list-group-item-heading" data-ng-bind="user.roles"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!users.$resolved || users.length">
+        No Users yet, why don't you <a href="/#!/users/profile/create">create one</a>?
+    </div>
+</section>
